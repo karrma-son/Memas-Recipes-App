@@ -2,9 +2,19 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";
 
-document.addEventListener('DOMContentLoaded', () => {
+const form = document.getElementById('recipeForm');
+const titleIn = document.getElementById('title');
+const catIn = document.getElementById('category');
+const areaIn = document.getElementById('area');
+const instrIn = document.getElementById('instructions');
+const imgIn = document.getElementById('image');
+const recipeCont = document.getElementById('knownRecipeContainer');
+const searchInput = document.getElementById('recipeSearch');
+const micBtn = document.getElementById('micBtn');
+const instrField = document.getElementById('instructions');
 
-// Initialize app FIRST
+
+document.addEventListener('DOMContentLoaded', () => {
 const firebaseConfig = {
 
   apiKey: "AIzaSyDZykzbTv_Z2rbyGGE0Jsad6P1-juL2fgo",
@@ -25,8 +35,8 @@ const firebaseConfig = {
 
 
 
-const app = initializeApp(firebaseConfig); // 🔥 Initialize it
-const db = getDatabase(app);   // ✅ Now get the database
+const app = initializeApp(firebaseConfig); 
+const db = getDatabase(app);
 const recipesRef = ref(db, 'recipes');
 
 const knownRecipes = [
@@ -48,17 +58,7 @@ const knownRecipes = [
   }
 ];
 
-// DOM Elements
-const form = document.getElementById('recipeForm');
-const titleIn = document.getElementById('title');
-const catIn = document.getElementById('category');
-const areaIn = document.getElementById('area');
-const instrIn = document.getElementById('instructions');
-const imgIn = document.getElementById('image');
-const recipeCont = document.getElementById('knownRecipeContainer');
-const searchInput = document.getElementById('recipeSearch');
 
-// Submit handler to push to Firebase
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -70,17 +70,42 @@ form.addEventListener('submit', (e) => {
     strMealThumb: imgIn.value
   };
 
-
   console.log("🚀 Attempting to push:", newRecipe);
 
   push(recipesRef, newRecipe)
     .then(() => console.log("✅ Successfully pushed to Firebase"))
     .catch(err => console.error("❌ Push failed:", err));
-    
+
   form.reset();
 });
 
-// Render function
+micBtn.addEventListener('click', () => {
+  const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+  recognition.lang = 'en-US';
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+
+  recognition.start();
+  micBtn.textContent = "🎤 Listening...";
+
+  recognition.onresult = (event) => {
+    const speech = event.results[0][0].transcript;
+    instrField.value += (instrField.value ? '\n' : '') + speech;
+    micBtn.textContent = "🎙️ Speak Again";
+  };
+
+  recognition.onerror = (event) => {
+    console.error("Speech recognition error:", event.error);
+    micBtn.textContent = "❌ Try Again";
+  };
+
+  recognition.onend = () => {
+    if (micBtn.textContent === "🎤 Listening...") {
+      micBtn.textContent = "🎙️ Speak";
+    }
+  };
+});
+
 function renderRecipes(list, container) {
   container.innerHTML = '';
   list.forEach(recipe => {
@@ -97,7 +122,7 @@ function renderRecipes(list, container) {
   });
 }
 
-// Toggle instructions
+
 recipeCont.addEventListener('click', (e) => {
   if (e.target.classList.contains('toggle')) {
     const card = e.target.closest('.recipe-card');
@@ -105,7 +130,7 @@ recipeCont.addEventListener('click', (e) => {
   }
 });
 
-// Firebase listener to sync in real-time
+
 onValue(recipesRef, (snapshot) => {
   const data = snapshot.val();
   const userRecipes = data ? Object.values(data) : [];
@@ -117,7 +142,7 @@ onValue(recipesRef, (snapshot) => {
   renderRecipes(all, recipeCont);
 });
 
-// Search filter
+
 searchInput.addEventListener('input', () => {
   const query = searchInput.value.toLowerCase();
   const cards = document.querySelectorAll('.recipe-card');
@@ -127,5 +152,4 @@ searchInput.addEventListener('input', () => {
   });
 });
 
-  // all your code here
 });
