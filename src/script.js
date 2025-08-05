@@ -1,5 +1,5 @@
 // script.js
-import { initializeApp, getApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,8 +25,7 @@ const firebaseConfig = {
 
 
 
-initializeApp(firebaseConfig); // 🔥 Initialize it
-const app = getApp();          // ✅ Grab the instance
+const app = initializeApp(firebaseConfig); // 🔥 Initialize it
 const db = getDatabase(app);   // ✅ Now get the database
 const recipesRef = ref(db, 'recipes');
 
