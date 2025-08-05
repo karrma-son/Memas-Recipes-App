@@ -80,29 +80,36 @@ form.addEventListener('submit', (e) => {
 });
 
 micBtn.addEventListener('click', () => {
-  const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+    alert("Speech recognition is not supported on this browser.");
+    return;
+  }
+
+  const recognition = new SpeechRecognition();
   recognition.lang = 'en-US';
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
+  micBtn.classList.add('listening');
+  micBtn.textContent = "🎧 Listening...";
+
   recognition.start();
-  micBtn.textContent = "🎤 Listening...";
 
   recognition.onresult = (event) => {
-    const speech = event.results[0][0].transcript;
-    instrField.value += (instrField.value ? '\n' : '') + speech;
-    micBtn.textContent = "🎙️ Speak Again";
+    const transcript = event.results[0][0].transcript;
+    instrField.value += (instrField.value ? '\n' : '') + transcript;
   };
 
-  recognition.onerror = (event) => {
-    console.error("Speech recognition error:", event.error);
-    micBtn.textContent = "❌ Try Again";
+  recognition.onerror = (e) => {
+    console.error("Speech recognition error:", e);
+    alert("Speech recognition error. Try again.");
   };
 
   recognition.onend = () => {
-    if (micBtn.textContent === "🎤 Listening...") {
-      micBtn.textContent = "🎙️ Speak";
-    }
+    micBtn.classList.remove('listening');
+    micBtn.textContent = "🎤 Tap to Speak";
   };
 });
 
