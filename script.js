@@ -15,7 +15,7 @@ const firebaseConfig = {
 
   projectId: "memas-recipes",
 
-  storageBucket: "memas-recipes.appspot.com",
+  storageBucket: "memas-recipes.firebasestorage.app",
 
   messagingSenderId: "1046994662322",
 
