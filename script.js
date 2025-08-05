@@ -70,8 +70,13 @@ form.addEventListener('submit', (e) => {
     strMealThumb: imgIn.value
   };
 
-  push(recipesRef, newRecipe);
 
+  console.log("🚀 Attempting to push:", newRecipe);
+
+  push(recipesRef, newRecipe)
+    .then(() => console.log("✅ Successfully pushed to Firebase"))
+    .catch(err => console.error("❌ Push failed:", err));
+    
   form.reset();
 });
 
