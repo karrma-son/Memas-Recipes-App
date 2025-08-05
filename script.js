@@ -79,7 +79,7 @@ form.addEventListener('submit', (e) => {
   form.reset();
 });
 
-micBtn.addEventListener('click', () => {
+/*micBtn.addEventListener('click', () => {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
   if (!SpeechRecognition) {
@@ -111,7 +111,7 @@ micBtn.addEventListener('click', () => {
     micBtn.classList.remove('listening');
     micBtn.textContent = "🎤 Tap to Speak";
   };
-});
+});*/
 
 function renderRecipes(list, container) {
   container.innerHTML = '';
