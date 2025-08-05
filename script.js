@@ -6,14 +6,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Initialize app FIRST
 const firebaseConfig = {
-             apiKey: "AIzaSyDZykzbTv_Z2rbyGGE0Jsad6P1-juL2fgo",
-            authDomain: "memas-recipes.firebaseapp.com",
-            databaseURL: "https://memas-recipes-default-rtdb.firebaseio.com",
-            projectId: "memas-recipes",
-            storageBucket: "memas-recipes.firebasestorage.app",
-            messagingSenderId: "1046994662322",
-            appId: "1:1046994662322:web:58bac6b5b5bbfa61716aab"
+
+  apiKey: "AIzaSyDZykzbTv_Z2rbyGGE0Jsad6P1-juL2fgo",
+
+  authDomain: "memas-recipes.firebaseapp.com",
+
+  databaseURL: "https://memas-recipes-default-rtdb.firebaseio.com",
+
+  projectId: "memas-recipes",
+
+  storageBucket: "memas-recipes.firebasestorage.app",
+
+  messagingSenderId: "1046994662322",
+
+  appId: "1:1046994662322:web:58bac6b5b5bbfa61716aab"
+
 };
+
+
 
 initializeApp(firebaseConfig); // 🔥 Initialize it
 const app = getApp();          // ✅ Grab the instance
