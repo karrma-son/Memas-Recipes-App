@@ -4,19 +4,88 @@ body {
   background: #fbe8d3; /* Orangish beige */
   margin: 0;
   padding: 2rem;
-  color: #333;
+  color: #6a4e2f;
 }
 h1 {
-  margin-top: 2rem;
-  color: #6a4e2f;
-  font-size: 46px;
-  text-align: center;
-}
-
-h2 {
   margin-top: 1px;
+  margin-bottom: 1px;
+  color: #6a4e2f;
+  text-shadow: 0 6px 8px rgba(0.6, 0.1, 0.1, 0.4);
+  font-size: 76px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
+  
+
+        .M1 {
+            display: inline-block;
+            transform: translate(15px, 8px) rotate(-9deg);
+        }
+
+        .e1 {
+            display: inline-block;
+            transform: translate(17px, 0px) rotate(-9deg);
+        }
+
+        .m2 {
+            display: inline-block;
+            transform: translate(20px, -9px) rotate(-9deg);
+        }
+
+        .a1 {
+            display: inline-block;
+            transform: translate(25px, -16px) rotate(-9deg);
+        }
+
+        .s1 {
+            display: inline-block;
+            transform: translate(29px, -22px) rotate(-8deg);
+
+
+
+
+      }
+    }
+h2 {
+  font-family: Impact;
+  margin-top: -60px;
+  margin-bottom: 6rem;
   color: #6a4e2f;
   text-align: center;
+  font-size: 46px;
+          .R {
+            display: inline-block;
+            transform: translate(17px, 63px) rotate(-9deg); 
+        }
+
+        .e2 {
+            display: inline-block;
+            transform: translate(20px, 58px) rotate(-9deg);
+        }
+
+        .c {
+            display: inline-block;
+            transform: translate(23px, 55px) rotate(-9deg);
+        }
+
+        .i {
+            display: inline-block;
+            transform: translate(26px, 52px) rotate(-9deg);
+        }
+
+        .p {
+            display: inline-block;
+            transform: translate(29px, 48px) rotate(-9deg);
+        }
+
+        .e3 {
+            display: inline-block;
+            transform: translate(32px, 45px) rotate(-9deg);
+        }
+
+        .s2 {
+            display: inline-block;
+            transform: translate(35px, 41px) rotate(-8deg);
+        }
 }
 
 
@@ -29,21 +98,40 @@ h2 {
 form {
   display: grid;
   gap: 1rem;
-  max-width: 400px;
+  max-width: 350px;
   background: #fff8f0;
   padding: 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 8px rgba(0.6, 0.1, 0.1, 0.4);
+  margin: auto;
 }
 
-input, textarea, button {
+input {
+  max-height: 15px;
   padding: 0.6rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
 }
 
-button {
+input:hover {
+  border: 2px solid #6a4e2f;
+}
+
+textarea { 
+  padding: 0.6rem;
+  font-size: 1rem;
+  margin: auto;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  max-width: 270px;
+}
+
+button 
+{
+  height: 45px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   background: #d88a34;
   color: white;
   border: none;
@@ -53,6 +141,7 @@ button {
 
 button:hover {
   background: #b06a25;
+  border: 2px solid #6a4e2f;
   box-shadow: 0 0 12px 2px gold;
 }
 .mic-wrapper {
@@ -113,6 +202,7 @@ button:hover {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 #recipeSearch {

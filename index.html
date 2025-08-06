@@ -1,42 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Recipe App</title>
-  <link rel="stylesheet" href="style.css">
-  <script type="module" src="script.js"></script>
-</head>
-<body>
-  <h1>MEMA'S RECIPES</h1>
-
-  <h2>Upload Your Recipe</h2>
-  <div class="form-wrapper">
-    <form id="recipeForm">
-      <input type="text" id="title" placeholder="Title" required>
-      <input type="text" id="category" placeholder="Category" required>
-      <input type="text" id="area" placeholder="Area" required>
-      <textarea id="instructions" placeholder="Instructions" required></textarea>
-      <input type="text" id="image"  accept="image/*" placeholder="Image URL" >
-      <button type="submit">Add Recipe</button>
-    </form>
-    <!--<div class="mic-wrapper">
-      <button type="button" id="micBtn" aria-label="Tap to speak" title="Tap to speak">
-      🎤 Tap to Speak
-      </button>
-    </div> -->
-  </div>
-
-
-
-  <h2>Search Recipes</h2>
-
-  <div class = "search-wrapper">
-  <input type="text" id="recipeSearch" placeholder="Search your recipes...">
-  </div>
-
-  <h2>Known Recipes</h2>
-  <div id="knownRecipeContainer" class="flex-container"></div>
-
-</body>
+  <head>
+    <title>MEMA'S RECIPES</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
