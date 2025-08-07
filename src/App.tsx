@@ -16,7 +16,8 @@ export default function App() {
     onValue(recipesRef, (snapshot) => {
       const data = snapshot.val();
       const userRecipes = data ? Object.values(data) : [];
-      setRecipes([...knownRecipes, ...userRecipes]);
+      setRecipes([...knownRecipes, ...(userRecipes as Recipe[])]);
+
     });
   }, []);
 
