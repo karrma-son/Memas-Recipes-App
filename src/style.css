@@ -100,7 +100,7 @@ form {
   gap: 1rem;
   max-width: 350px;
   background: #fff8f0;
-  background-image: url( "images/flowers.jpg");
+  background-image: url( "/flowers.jpg");
   background-size: contain;
   padding: 1.5rem;
   border-radius: 10px;
