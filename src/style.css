@@ -1,90 +1,123 @@
 
+#root {
+  margin-top: -12px;
+}
+
+
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #fbe8d3; /* Orangish beige */
+  background-image: url( "/design1.jpg");
+  background-size: 25%;
   margin: 0;
   padding: 2rem;
   color: #6a4e2f;
+  text-align: center;
 }
+.banner{
+margin: auto;
+background-color: rgba(254, 227, 117, 0.5);
+width: 180px;
+height: 170px;
+margin-bottom: 1rem;
+border: 10px ridge;
+border-color: #6a4e2f;
+background-size: 100px;
+border-radius: 50%;
+}
+
 h1 {
   margin-top: 1px;
   margin-bottom: 1px;
-  color: #6a4e2f;
+  color: #42413c;
   text-shadow: 0 6px 8px rgba(0.6, 0.1, 0.1, 0.4);
-  font-size: 76px;
+  font-size: 36px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  text-align: center;
+  
   
 
         .M1 {
             display: inline-block;
-            transform: translate(15px, 8px) rotate(-9deg);
+            transform: translate(-7px, 13px) rotate(-10deg);
         }
 
         .e1 {
             display: inline-block;
-            transform: translate(17px, 0px) rotate(-9deg);
+            transform: translate(-9px, 8px) rotate(-9deg);
         }
 
         .m2 {
             display: inline-block;
-            transform: translate(20px, -9px) rotate(-9deg);
+            transform: translate(-9px, 4px) rotate(-10deg);
         }
 
         .a1 {
             display: inline-block;
-            transform: translate(25px, -16px) rotate(-9deg);
+            transform: translate(-11px, 0px) rotate(-9deg);
         }
 
         .s1 {
             display: inline-block;
-            transform: translate(29px, -22px) rotate(-8deg);
+            transform: translate(-12px, -3px) rotate(-9deg);
 
 
 
 
       }
     }
+
+.pic {
+  margin: auto;
+  height: 100px;
+  width: 110px;
+  border-radius: 50%;
+  background-image: url("/Mema-pic.png");
+  background-size:contain;
+  background-position: center center;
+
+}    
+
+
 h2 {
   font-family: Impact;
   margin-top: -60px;
   margin-bottom: 6rem;
   color: #6a4e2f;
   text-align: center;
-  font-size: 46px;
-          .R {
+  font-size: 16px;
+        .R {
             display: inline-block;
-            transform: translate(17px, 63px) rotate(-9deg); 
+            transform: translate(-1px, 56px) rotate(11deg);
         }
 
         .e2 {
             display: inline-block;
-            transform: translate(20px, 58px) rotate(-9deg);
+            transform: translate(2px, 58px) rotate(2deg);
         }
 
         .c {
             display: inline-block;
-            transform: translate(23px, 55px) rotate(-9deg);
+            transform: translate(4px, 59px) rotate(2deg);
         }
 
         .i {
             display: inline-block;
-            transform: translate(26px, 52px) rotate(-9deg);
+            transform: translate(8px, 59px) rotate(-5deg);
+            font-size: 15px;
         }
 
         .p {
             display: inline-block;
-            transform: translate(29px, 48px) rotate(-9deg);
+            transform: translate(11px, 56px) rotate(-9deg);
         }
 
         .e3 {
             display: inline-block;
-            transform: translate(32px, 45px) rotate(-9deg);
+            transform: translate(14px, 53px) rotate(-15deg);
         }
 
         .s2 {
             display: inline-block;
-            transform: translate(35px, 41px) rotate(-8deg);
+            transform: translate(16px, 48px) rotate(-18deg);
         }
 }
 
@@ -96,21 +129,48 @@ h2 {
 }
 
 form {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 1rem;
-  max-width: 350px;
+  width: 350px;
   background: #fff8f0;
   background-image: url( "/flowers.jpg");
-  background-size: contain;
+  background-size: cover;
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 6px 8px rgba(0.6, 0.1, 0.1, 0.4);
   margin: auto;
 }
+@media (max-width: 100px) {
+  body {
+    padding: 1rem;
+  }
+
+  form {
+    width: 100%;
+    max-width: none;
+  }
+
+  input, textarea, button {
+    font-size: 1rem;
+  }
+
+  .recipe-card {
+    width: 100%;
+  }
+
+  #recipeSearch {
+    width: 100%;
+  }
+}
 
 input {
+  margin: 1px;
   max-height: 15px;
-  padding: 0.6rem;
+  width: 75px;
+  margin-bottom: 7px;
+  padding: .6rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -118,6 +178,15 @@ input {
 
 input:hover {
   border: 2px solid #6a4e2f;
+  box-shadow: 0 0 12px 2px gold;
+}
+
+input[type = title] {
+width: 265px;
+}
+
+input[type = category] {
+width: 85px;
 }
 
 textarea { 
@@ -132,11 +201,12 @@ textarea {
 button 
 {
   height: 45px;
+  width: 90px;
   border: 1px solid #ccc;
   border-radius: 8px;
   background: #d88a34;
   color: white;
-  border: none;
+  border: solid #6a4e2f;
   cursor: pointer;
   transition: box-shadow 0.3s ease, background 0.3s ease;
 }
@@ -146,6 +216,7 @@ button:hover {
   border: 2px solid #6a4e2f;
   box-shadow: 0 0 12px 2px gold;
 }
+/*
 .mic-wrapper {
   display: inline-block;
   position: relative;
@@ -198,7 +269,7 @@ button:hover {
     opacity: 1;
   }
 }
-
+*/
 
 .search-wrapper {
   display: flex;
@@ -266,28 +337,7 @@ button:hover {
   display: block;
 }
 
-@media (max-width: 600px) {
-  body {
-    padding: 1rem;
-  }
 
-  form {
-    width: 100%;
-    max-width: none;
-  }
-
-  input, textarea, button {
-    font-size: 1rem;
-  }
-
-  .recipe-card {
-    width: 100%;
-  }
-
-  #recipeSearch {
-    width: 100%;
-  }
-}
 .ingredients-table {
   width: 100%;
   border-collapse: collapse;

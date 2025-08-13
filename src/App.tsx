@@ -31,6 +31,7 @@ export default function App() {
 
   return (
     <div className="container">
+      <div className="banner">
       <h1>
         <span className="M1">M</span>
         <span className="e1">e</span>
@@ -38,6 +39,7 @@ export default function App() {
         <span className="a1">a</span>
         <span className="s1">s</span>
       </h1>
+      <div className= "pic"></div> 
       <h2> 
         <span className="R">R</span>
         <span className="e2">e</span>
@@ -47,7 +49,7 @@ export default function App() {
         <span className="e3">e</span>
         <span className="s2">s</span>
       </h2>
-
+    </div>
       <RecipeForm onAddRecipe={handleAddRecipe} />
       <SearchBar query={query} setQuery={setQuery} />
       <div className="flex-container">

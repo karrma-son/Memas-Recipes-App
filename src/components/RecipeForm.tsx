@@ -58,10 +58,9 @@ export default function RecipeForm({ onAddRecipe }: Props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" required />
-      <input value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Category" required />
+      <input type= "title" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" required />
+      <input type= "category" value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Category" required />
 
-      <h4>Ingredients</h4>
       {ingredients.map((ing, idx) => (
         <div key={idx} >
           <input
@@ -81,12 +80,13 @@ export default function RecipeForm({ onAddRecipe }: Props) {
       </button>
 
       <textarea value={instructions} onChange={(e) => setInstructions(e.target.value)} placeholder="Instructions" />
-
-      <input title="images" type="file" accept="image/*" onChange={(e) => setImageFile(e.target.files?.[0] || null)} />
-
+      
       <button type="submit" disabled={uploading}>
         {uploading ? 'Uploading...' : 'Add Recipe'}
       </button>
     </form>
   );
 }
+
+ /* <input title="images" type="file" accept="image/*" onChange={(e) => setImageFile(e.target.files?.[0] || null)} /> 
+        */
