@@ -1,8 +1,7 @@
 export interface Recipe {
-  id?: string;
   strMeal: string;
   strCategory: string;
-  strArea: string;
+  ingredients: { name: string; amount: string }[];
   strInstructions: string;
   strMealThumb: string;
 }
